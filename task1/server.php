@@ -3,6 +3,10 @@
 $uploaddir = "files/";
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
+if (!is_dir($uploaddir)){
+    mkdir($uploaddir);
+}
+
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
     $separator = ".";
 
